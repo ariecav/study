@@ -44,9 +44,13 @@ return require('packer').startup(function(use)
 								dependencies = 'nvim-tree/nvim-web-devicons'}
 
 						use {'rmagatti/auto-session'}
-
-						use {'windwp/nvim-autopairs',
-								event = {'InsertEnter'}}
+						use {
+								"windwp/nvim-autopairs",
+								event = "InsertEnter",
+								config = function()
+										require("nvim-autopairs").setup {}
+								end
+						}
 						use {
 								'nvimtools/none-ls.nvim',
 								'jose-elias-alvarez/null-ls.nvim',
