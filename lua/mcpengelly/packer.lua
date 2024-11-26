@@ -48,12 +48,18 @@ return require('packer').startup(function(use)
 						use {'windwp/nvim-autopairs',
 								event = {'InsertEnter'}}
 						use {
+								'nvimtools/none-ls.nvim',
 								'jose-elias-alvarez/null-ls.nvim',
 								'MunifTanjim/prettier.nvim'
 						}
 
 
-
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"ejs"},
+    callback = function()
+        vim.bo.filetype = "html"  -- Set filetype to HTML for EJS files
+    end,
+})
 
 end
 )

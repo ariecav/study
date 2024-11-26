@@ -11,6 +11,16 @@ require("mason").setup({
 require("mason-lspconfig").setup {
     ensure_installed = { "lua_ls", "html", "ts_ls", "pyright"}
 }
+local null_ls = require("null-ls")
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.completion.spell,
+        null_ls.builtins.diagnostics.eslint_d 
+    },
+})
+vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {})
 
 local lsp = require('lspconfig')
 lsp.pyright.setup{
@@ -35,4 +45,11 @@ capabilities = capabilities}
   vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, {})
 vim.diagnostic.config({
     virtual_text = true
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"ejs"},
+    callback = function()
+        vim.bo.filetype = "html"  -- Treat EJS files as HTML for syntax highlighting and LSP features
+    end,
 })

@@ -40,6 +40,10 @@ nvimtree.setup({
 		git = {
 				ignore = false,
 		},
+    trash = {
+        cmd = "trash",  -- Use 'trash' from trash-cli
+        require_confirm = true,
+    },
 })
 
 -- set keymaps
