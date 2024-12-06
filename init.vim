@@ -4,10 +4,10 @@ set tabstop=2
 syntax on
 set clipboard=unnamedplus
 
-lua require('mcpengelly.remap')
-lua require('mcpengelly.set')
-lua require('mcpengelly.packer')
-autocmd BufNewFile,BufRead *.ejs set filetype=html 
+lua require('arie.remap')
+lua require('arie.set')
+lua require('arie.packer')
+autocmd BufNewFile,BufRead *.ejs set filetype=html
 
 let g:clipboard = {
     \ 'name': 'win32yank-wsl',
