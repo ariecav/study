@@ -7,7 +7,7 @@ set clipboard=unnamedplus
 lua require('mcpengelly.remap')
 lua require('mcpengelly.set')
 lua require('mcpengelly.packer')
-     
+autocmd BufNewFile,BufRead *.ejs set filetype=html 
 
 let g:clipboard = {
     \ 'name': 'win32yank-wsl',
